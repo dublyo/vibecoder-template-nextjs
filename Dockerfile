@@ -34,4 +34,4 @@ COPY --from=deps /app/node_modules/prisma ./node_modules/prisma
 EXPOSE 3000
 
 # Run migrations (skip if no DATABASE_URL or prisma fails) then start
-CMD ["sh", "-c", "if [ -n \"$DATABASE_URL\" ]; then node node_modules/prisma/build/index.js db push --skip-generate 2>/dev/null || echo Prisma push skipped; fi && node server.js"]
+CMD ["sh", "-c", "if [ -n \"$DATABASE_URL\" ]; then node node_modules/prisma/build/index.js db push --skip-generate 2>/dev/null || echo 'Prisma push skipped'; fi && node server.js"]
